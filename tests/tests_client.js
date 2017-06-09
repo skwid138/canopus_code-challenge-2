@@ -17,7 +17,7 @@ describe('postCats', function () {
 
     expect($.ajax).to.be.called;
     expect($.ajax.getCall(0).args[0].url).to.equal('/cats');
-    expect($.ajax.getCall(0).args[0].type).to.equal('post');
+    expect($.ajax.getCall(0).args[0].type.toLowerCase()).to.equal('post');
   });
 
   it('sends a cat object as data', function () {
