@@ -26,6 +26,17 @@ function postCat(cat) {
    * (2) Upon success, call the getCats function to display the updated data.
    * (Optional) If there is an error, call the showFormError function.
    */
+  $.ajax({
+    method: 'POST',
+    url: '/cats',
+    data: cat,
+    success: function( ) {
+      getCats(); // (2) Upon success, call the getCats function
+    }, // end success
+    error: function( ) {
+      showFormError(); // If there is an error, call the showFormError function
+    } // end error
+  }); // end ajax
 }
 
 /** ------ GET CAT FUNCTIONS ------ **/

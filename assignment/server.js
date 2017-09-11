@@ -3,9 +3,12 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var catData = {
-  cats: []
-};
+var cats = require('./modules/routes/cats');
+
+// moved to cats route
+// var catData = {
+//   cats: []
+// };
 
 app.use(express.static('assignment/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * @TODO: Write a route that responds to GET /cats by sending the catData object
  * (defined above)
  */
+app.use('/cats', cats);
 
 /**
  * @TODO: Write a route that responds to POST /cats by adding a new cat object
