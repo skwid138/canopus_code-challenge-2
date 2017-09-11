@@ -1,16 +1,24 @@
 $(function() {
   getCats();
-  $('#add-cat').on('submit', addCat);
+  $('#add-cat').on('click', addCat);
 });
 
 /** ------ ADD CAT FUNCTIONS ------ **/
 
 function addCat(submitEvent) {
   clearFormError();
-  submitEvent.preventDefault();
-  var data = $(this).serialize();
-  console.log('Our new cat data from the form', data);
-  postCat(data);
+  
+  // get cat input values
+  var catName = $('#cat-name').val();
+  var catAge = $('#cat-age').val();
+
+  var catData = {
+    name: catName,
+    age: catAge
+  }
+  
+  console.log('Our new cat data from the form', catData);
+  postCat(catData);
 }
 
 function postCat(cat) {
