@@ -27,7 +27,8 @@ function postCat(cat) {
    * (Optional) If there is an error, call the showFormError function.
    */
   $.ajax({
-    method: 'POST',
+    // method: 'POST',
+    type: 'POST',
     url: '/cats',
     data: cat,
     success: function( ) {
